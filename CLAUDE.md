@@ -224,6 +224,12 @@ The flow, and why each step is the way it is:
 
 Squashing either design-flow leg is what produced repeated conflicts on the apply merge (#44 to #45, #47 to #48).
 
+**Palette x type trial (Storybook only; the setup's palette and typefaces are provisional).** `design-system/trial/` holds the candidates and `Trial.stories.tsx` ("Trial/Palette and type": Specimen, Matrix, Colors, Type, Photos).
+Palettes are the JSON files in `design-system/trial/palettes/` (each passes `pnpm init-band check-palette <file>`; the current one is read from `band.config.json`); type sets and their `font-info` notes are in `design-system/trial/trial.ts`.
+The toolbar's Palette, Type and Body menus (globals set in `.storybook/preview.tsx`) apply a candidate to the whole preview, so every story re-themes; the URL carries it (`?globals=palette:candy-plum;typeset:jcard-anton`).
+The trial's extra fonts are devDependencies imported only from `design-system/trial/fonts.ts` (never from the generated `design-system/fonts.ts`), and the site does not import any of this. The pick is applied by editing `band.config.json`
+(`palette`, `typography`) and running `pnpm theme` (and `node scripts/make-brand-assets.mjs --hero public/images/hero.jpg` for the icons and social card); then delete the candidates that lost. `public/images/` holds web copies of the photos in `images/originals/` (gitignored).
+
 Type: `band.config.json` `typography` names a face for each role: `display` (headings, buttons, labels: tight, extra-bold), `body`, and optionally `wordmark` (the band
 name only, in flat colour, tight, capitals if `uppercase`) and `kicker` (the small labels above headings and flourishes, never the name). The template's are Encode Sans Expanded
 and Space Grotesk, with the other two off. When `wordmark` or `kicker` is off, that role uses the display face, so components never name a face: they use `font-display`,
