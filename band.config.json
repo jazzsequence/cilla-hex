@@ -19,11 +19,11 @@
   },
   "typography": {
     "display": {
-      "id": "bodoni-moda",
-      "family": "Bodoni Moda",
-      "category": "serif",
-      "variable": true,
-      "weights": [400, 500, 600, 700, 800, 900]
+      "id": "abril-fatface",
+      "family": "Abril Fatface",
+      "category": "display",
+      "variable": false,
+      "weights": [400]
     },
     "body": {
       "id": "courier-prime",
@@ -33,7 +33,13 @@
       "weights": [400, 700]
     },
     "wordmark": null,
-    "kicker": null
+    "kicker": {
+      "id": "bodoni-moda",
+      "family": "Bodoni Moda",
+      "category": "serif",
+      "variable": true,
+      "weights": [400, 500, 600, 700, 800, 900]
+    }
   },
   "setup": {
     "initialized": true
@@ -42,18 +48,18 @@
     "offLimitsFile": "docs/off-limits.md"
   },
   "palette": {
-    "void": "#0c0304",
-    "surface": "#18080a",
-    "raised": "#250e11",
-    "line": "#502229",
-    "text": "#fceeef",
-    "muted": "#d6b4b7",
-    "dim": "#af8a8e",
-    "accent": "#ff8798",
-    "accent-2": "#ffa18f",
-    "accent-3": "#ffc29d",
-    "metal-hi": "#faeff0",
-    "metal-mid": "#e4d2d4",
-    "metal-lo": "#977f81"
+    "void": "#070b10",
+    "surface": "#0e1620",
+    "raised": "#172330",
+    "line": "#324759",
+    "text": "#e7edf1",
+    "muted": "#b5c2cc",
+    "dim": "#8b9ba8",
+    "accent": "#eab3b8",
+    "accent-2": "#9eb9d3",
+    "accent-3": "#f1c590",
+    "metal-hi": "#eff4f7",
+    "metal-mid": "#d0dae1",
+    "metal-lo": "#7d8d9a"
   }
 }

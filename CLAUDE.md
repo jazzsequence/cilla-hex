@@ -14,8 +14,8 @@ Recorded by `/init-band` on 2026-11-19. Change them in `band.config.json` (then 
 
 - **Band:** Cilla Hex, a fictional act (pages never present it as real). Demos made alone while the band is on pause.
 - **Sections on:** Lyrics, Press kit. **Off:** Tour and tickets, Merch, Tour map, Press; their routes return 404 and they drop out of the nav, sitemap and `llms.txt`. There is no `/press` page (no press yet); the press kit is its own switch, `features.pressKit`, and a P1-only page.
-- **Type:** headings in Bodoni Moda (variable), body in Courier Prime; the wordmark uses the display face; kickers use the display face.
-- **Palette:** see `band.config.json`; the gate needed no adjustments.
+- **Type:** headings and the wordmark in Abril Fatface (single weight, used as designed), body in Courier Prime, kickers in Bodoni Moda (variable). This is the trial's "Pageant sash: Abril Fatface", picked 2026-11-19. The trial showed the kicker in italic; that was trial-only CSS (`.font-kicker` has no italic and the config names only a face), so the site's kickers are upright until a design PR adds it.
+- **Palette:** "Foggy Peninsula" (slate-blue surfaces, fog-grey text, stucco-pink accent), picked 2026-11-19 from the trial; see `band.config.json`; the gate needed no adjustments.
 - **Hosting:** Pantheon site not set yet; P1 site not set yet; audio host not set yet (`NEXT_PUBLIC_AUDIO_BASE_URL`).
 - **Workflows installed:** none yet (the examples are in `examples/workflows/`).
 - Secrets are never in files; see "Secrets on Pantheon" below for how each is set.
@@ -223,6 +223,12 @@ The flow, and why each step is the way it is:
 | Anything else into `main` (code, content, docs, CI, wiring) | Squash |
 
 Squashing either design-flow leg is what produced repeated conflicts on the apply merge (#44 to #45, #47 to #48).
+
+**Palette x type trial (Storybook only; the pick, Foggy Peninsula with Pageant sash in Abril Fatface, has been applied to `band.config.json`; the losing candidates are still here for comparison).** `design-system/trial/` holds the candidates and `Trial.stories.tsx` ("Trial/Palette and type": Specimen, Matrix, Colors, Type, Photos).
+Palettes are the JSON files in `design-system/trial/palettes/` (each passes `pnpm init-band check-palette <file>`; the current one is read from `band.config.json`); type sets and their `font-info` notes are in `design-system/trial/trial.ts`.
+The toolbar's Palette, Type and Body menus (globals set in `.storybook/preview.tsx`) apply a candidate to the whole preview, so every story re-themes; the URL carries it (`?globals=palette:candy-plum;typeset:jcard-anton`).
+The trial's extra fonts are devDependencies imported only from `design-system/trial/fonts.ts` (never from the generated `design-system/fonts.ts`), and the site does not import any of this. The pick is applied by editing `band.config.json`
+(`palette`, `typography`) and running `pnpm theme` (and `node scripts/make-brand-assets.mjs --hero public/images/hero.jpg` for the icons and social card); then delete the candidates that lost. **Trap:** `pnpm init-band apply --force` removes every Fontsource package the config does not name, which includes the trial's dev fonts; re-add them afterwards (`pnpm add -D @fontsource/anton @fontsource/bebas-neue @fontsource/cutive-mono`) or delete the trial. `public/images/` holds web copies of the photos in `images/originals/` (gitignored).
 
 Type: `band.config.json` `typography` names a face for each role: `display` (headings, buttons, labels: tight, extra-bold), `body`, and optionally `wordmark` (the band
 name only, in flat colour, tight, capitals if `uppercase`) and `kicker` (the small labels above headings and flourishes, never the name). The template's are Encode Sans Expanded

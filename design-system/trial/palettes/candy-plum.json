@@ -1,0 +1,15 @@
+{
+  "void": "#0a0510",
+  "surface": "#150b1c",
+  "raised": "#211229",
+  "line": "#472b57",
+  "text": "#f8eefa",
+  "muted": "#d0bcd9",
+  "dim": "#a891b3",
+  "accent": "#ff8fc6",
+  "accent-2": "#8fe9c3",
+  "accent-3": "#f8e283",
+  "metal-hi": "#f7eefb",
+  "metal-mid": "#ded1e8",
+  "metal-lo": "#8f819c"
+}
