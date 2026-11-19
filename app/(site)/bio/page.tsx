@@ -49,7 +49,7 @@ export default async function Bio() {
               Cilla Hex was born Pricilla Nakagawa in Daly City, south of San Francisco. Her father worked at a cemetery in Colma, the next town over,
               where the dead outnumber the living, and she grew up around it. Her mother entered her in pageants. She left home at seventeen.
             </p>
-            <p>She sings in Dead Prom Queens. Demos is her own: five songs, sung straight about the things she has decided to say out loud.</p>
+            <p>She sings in Dead Prom Queens. She's now producing her own solo work, starting with these demos: five songs, sung straight about the things she has decided to say out loud.</p>
           </div>
           <div className="flex flex-wrap gap-3">
             {features.tour && <ButtonLink href="/tour">Tour dates</ButtonLink>}
