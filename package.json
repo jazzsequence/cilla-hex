@@ -1,7 +1,7 @@
 {
-  "name": "band-site-template",
+  "name": "cilla-hex",
   "version": "0.1.0",
-  "description": "A website for a band, real or fictional: Next.js 16 and P1 (Puck) on Pantheon.",
+  "description": "Demos made alone while the band is on pause.",
   "private": true,
   "type": "module",
   "scripts": {
@@ -23,8 +23,8 @@
     "build-storybook": "node scripts/copy-maplibre-worker.mjs && storybook build -o storybook-static"
   },
   "dependencies": {
-    "@fontsource-variable/space-grotesk": "^5.3.0",
-    "@fontsource/encode-sans-expanded": "^5.3.0",
+    "@fontsource-variable/bodoni-moda": "^5.3.0",
+    "@fontsource/courier-prime": "^5.3.0",
     "@pantheon-systems/cpub-react-sdk": "^5.2.1",
     "@pantheon-systems/css-client": "^0.20.1",
     "@pantheon-systems/nextjs-cache-handler": "0.13.1",
@@ -50,6 +50,7 @@
     "@atproto/api": "^0.27.0",
     "@axe-core/playwright": "^4.13.0",
     "@eslint/js": "^9.27.0",
+    "@fontsource/bodoni-moda": "^5.3.0",
     "@playwright/test": "^1.64.1",
     "@storybook/addon-a11y": "^10.6.2",
     "@storybook/addon-docs": "^10.6.2",

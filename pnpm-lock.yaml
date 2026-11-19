@@ -13,10 +13,10 @@ importers:
 
   .:
     dependencies:
-      '@fontsource-variable/space-grotesk':
+      '@fontsource-variable/bodoni-moda':
         specifier: ^5.3.0
         version: 5.3.0
-      '@fontsource/encode-sans-expanded':
+      '@fontsource/courier-prime':
         specifier: ^5.3.0
         version: 5.3.0
       '@pantheon-systems/cpub-react-sdk':
@@ -89,6 +89,9 @@ importers:
       '@eslint/js':
         specifier: ^9.27.0
         version: 9.39.5
+      '@fontsource/bodoni-moda':
+        specifier: ^5.3.0
+        version: 5.3.0
       '@playwright/test':
         specifier: ^1.64.1
         version: 1.64.1
@@ -642,11 +645,14 @@ packages:
   '@floating-ui/utils@0.2.12':
     resolution: {integrity: sha512-HpCo8tmWzLVad5s2d19EhAz5zqrrQ6s69qd6moPMQvkOuSwDT1YgRfWSVuc4ennqrgv3OHppiOGMQ7oC13yIww==}
 
-  '@fontsource-variable/space-grotesk@5.3.0':
-    resolution: {integrity: sha512-2IxmvfB08i9vnGB3Ym/AXvhRE+8XOjWMXIyDum03c+tPwH0FUoMNQfGpU8NXPxjbws0Vvss3AH0Zqt4oJBBAdw==}
+  '@fontsource-variable/bodoni-moda@5.3.0':
+    resolution: {integrity: sha512-yTDXk4+/J8I20KjtkHBbXDQNeE5PR3BZa0gv/YRza+kyxsz+mmg0la/n/hsr6+WvSfVP7Lc8lRTjHGIYwBW43A==}
 
-  '@fontsource/encode-sans-expanded@5.3.0':
-    resolution: {integrity: sha512-ay7t9tx7TvBTjL6H9oAR+Z5NOWxOEXTK9IOJ2jKNtT/+j/2Sn2wpPV2E1eY716Be0kOcEFHcluzlphTZvQGt+g==}
+  '@fontsource/bodoni-moda@5.3.0':
+    resolution: {integrity: sha512-Wt2XBCHivYxkTP3ydq/Ax+7VshwsOh/6ayA5om2t+yClCkGwLPj2Mi6OnyMANjyLcqDUWs4rlOHnc8SBLf6/pA==}
+
+  '@fontsource/courier-prime@5.3.0':
+    resolution: {integrity: sha512-KIi1k4VG1Wv+/CGpb1AUpLkUuOAQA6zmvthqxOZGN0AV8BEgQgbK7qAtquv14zsBJAY1bb5BHIEbWVFLgENh0w==}
 
   '@google-cloud/paginator@5.0.2':
     resolution: {integrity: sha512-DJS3s0OVH4zFDB1PzjxAsHqJT6sKVbRwwML0ZBP9PbU7Yebtu/7SWMRzvO2J3nUi9pRNITCfu4LJeooM2w4pjg==}
@@ -5867,9 +5873,11 @@ snapshots:
 
   '@floating-ui/utils@0.2.12': {}
 
-  '@fontsource-variable/space-grotesk@5.3.0': {}
+  '@fontsource-variable/bodoni-moda@5.3.0': {}
 
-  '@fontsource/encode-sans-expanded@5.3.0': {}
+  '@fontsource/bodoni-moda@5.3.0': {}
+
+  '@fontsource/courier-prime@5.3.0': {}
 
   '@google-cloud/paginator@5.0.2':
     dependencies:

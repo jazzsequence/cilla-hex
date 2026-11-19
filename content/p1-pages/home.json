@@ -2,8 +2,8 @@
   "path": "/",
   "root": {
     "props": {
-      "title": "Your Band",
-      "description": "A sentence or two about the band, used for search results and social cards."
+      "title": "Cilla Hex",
+      "description": "Cilla Hex, singer of Dead Prom Queens, steps out on her own. The band is on pause. She isn't."
     }
   },
   "content": [
@@ -17,27 +17,11 @@
         "blurb": "The latest release.",
         "actions": [
           {
-            "label": "Tour dates",
-            "href": "/tour",
-            "style": "primary"
-          },
-          {
             "label": "Listen",
             "href": "/listen",
             "style": "outline"
           }
         ]
-      }
-    },
-    {
-      "type": "TourPreviewBlock",
-      "props": {
-        "id": "TourPreviewBlock-2",
-        "kicker": "On the road",
-        "heading": "Tour dates",
-        "count": 4,
-        "linkLabel": "All dates",
-        "linkHref": "/tour"
       }
     },
     {

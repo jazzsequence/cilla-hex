@@ -1,58 +1,58 @@
 {
   "band": {
-    "name": "Your Band",
-    "tagline": "One line that says what your band sounds like.",
-    "description": "A sentence or two about the band, used for search results and social cards.",
-    "genre": "Genre",
-    "fictional": false,
-    "siteUrl": "https://example.com",
+    "name": "Cilla Hex",
+    "tagline": "Demos made alone while the band is on pause.",
+    "description": "Cilla Hex, singer of Dead Prom Queens, steps out on her own. The band is on pause. She isn't.",
+    "genre": "Lo-fi goth, synth-punk",
+    "fictional": true,
+    "siteUrl": "https://cilla.jazzsequence.com",
     "copyrightYear": 2026,
     "social": []
   },
   "features": {
-    "tour": true,
-    "merch": true,
+    "tour": false,
+    "merch": false,
     "lyrics": true,
-    "map": true,
+    "map": false,
     "press": true
   },
   "typography": {
     "display": {
-      "id": "encode-sans-expanded",
-      "family": "Encode Sans Expanded",
-      "category": "sans-serif",
-      "variable": false,
-      "weights": [100, 200, 300, 400, 500, 600, 700, 800, 900]
+      "id": "bodoni-moda",
+      "family": "Bodoni Moda",
+      "category": "serif",
+      "variable": true,
+      "weights": [400, 500, 600, 700, 800, 900]
     },
     "body": {
-      "id": "space-grotesk",
-      "family": "Space Grotesk",
-      "category": "sans-serif",
-      "variable": true,
-      "weights": [300, 400, 500, 600, 700]
+      "id": "courier-prime",
+      "family": "Courier Prime",
+      "category": "monospace",
+      "variable": false,
+      "weights": [400, 700]
     },
     "wordmark": null,
     "kicker": null
   },
   "setup": {
-    "initialized": false
+    "initialized": true
   },
   "editorial": {
     "offLimitsFile": "docs/off-limits.md"
   },
   "palette": {
-    "void": "#07050d",
-    "surface": "#0e0a18",
-    "raised": "#17112a",
-    "line": "#2c2250",
-    "text": "#f5f0ff",
-    "muted": "#b9aed6",
-    "dim": "#8f84ad",
-    "accent": "#ff3fa4",
-    "accent-2": "#a98bff",
-    "accent-3": "#3ef0ff",
-    "metal-hi": "#f1effa",
-    "metal-mid": "#d9d6ea",
-    "metal-lo": "#8d8aa6"
+    "void": "#0c0304",
+    "surface": "#18080a",
+    "raised": "#250e11",
+    "line": "#502229",
+    "text": "#fceeef",
+    "muted": "#d6b4b7",
+    "dim": "#af8a8e",
+    "accent": "#ff8798",
+    "accent-2": "#ffa18f",
+    "accent-3": "#ffc29d",
+    "metal-hi": "#faeff0",
+    "metal-mid": "#e4d2d4",
+    "metal-lo": "#977f81"
   }
 }
