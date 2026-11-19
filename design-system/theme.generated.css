@@ -5,33 +5,33 @@
  */
 @theme {
   /* Surfaces */
-  --color-void: #0c0304;
-  --color-surface: #18080a;
-  --color-raised: #250e11;
-  --color-line: #502229;
+  --color-void: #070b10;
+  --color-surface: #0e1620;
+  --color-raised: #172330;
+  --color-line: #324759;
 
   /* Text */
-  --color-text: #fceeef;          /* 17.2:1 on surface, 16.1:1 worst case */
-  --color-muted: #d6b4b7;         /* 10.2:1 on surface, 9.6:1 worst case */
-  --color-dim: #af8a8e;           /* 6.3:1 on surface, 5.9:1 worst case */
+  --color-text: #e7edf1;          /* 15.4:1 on surface, 13.4:1 worst case */
+  --color-muted: #b5c2cc;         /* 10.0:1 on surface, 8.7:1 worst case */
+  --color-dim: #8b9ba8;           /* 6.3:1 on surface, 5.5:1 worst case */
 
   /* Accents, by role. accent is the primary (kickers, primary action), accent-2 links and labels,
      accent-3 focus and secondary actions. Components never name a hue. */
-  --color-accent: #ff8798;        /* 8.5:1 on surface, 7.9:1 worst case */
-  --color-accent-2: #ffa18f;      /* 9.9:1 on surface, 9.3:1 worst case */
-  --color-accent-3: #ffc29d;      /* 12.4:1 on surface, 11.7:1 worst case */
+  --color-accent: #eab3b8;        /* 10.0:1 on surface, 8.8:1 worst case */
+  --color-accent-2: #9eb9d3;      /* 8.9:1 on surface, 7.8:1 worst case */
+  --color-accent-3: #f1c590;      /* 11.3:1 on surface, 9.9:1 worst case */
 
   /* Metal (metallic neutral). metal-mid is the gradient's bright third stop. */
-  --color-metal-hi: #faeff0;      /* 17.3:1 on surface, 16.2:1 worst case */
-  --color-metal-lo: #977f81;      /* 5.2:1 on surface, 4.9:1 worst case */
-  --color-metal-mid: #e4d2d4;     /* 13.4:1 on surface, 12.5:1 worst case */
+  --color-metal-hi: #eff4f7;      /* 16.4:1 on surface, 14.3:1 worst case */
+  --color-metal-lo: #7d8d9a;      /* 5.3:1 on surface, 4.6:1 worst case */
+  --color-metal-mid: #d0dae1;     /* 12.8:1 on surface, 11.2:1 worst case */
 
   /* Type, by role, from band.config.json. The wordmark and kicker faces are optional; when off, those roles use
      the display face, so components never need to know which was chosen. */
-  --font-display: "Bodoni Moda Variable", ui-serif, Georgia, serif;
+  --font-display: "Abril Fatface", system-ui, sans-serif;
   --font-body: "Courier Prime", ui-monospace, monospace;
   --font-wordmark: var(--font-display);
-  --font-kicker: var(--font-display);
+  --font-kicker: "Bodoni Moda Variable", ui-serif, Georgia, serif;
 
   --shadow-glow-accent: 0 0 24px color-mix(in srgb, var(--color-accent) 45%, transparent);
   --shadow-glow-accent-3: 0 0 24px color-mix(in srgb, var(--color-accent-3) 35%, transparent);

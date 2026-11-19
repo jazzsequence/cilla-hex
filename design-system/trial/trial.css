@@ -1,0 +1,20 @@
+/*
+ * The few rules a trial type set needs on top of the CSS variables: capitals and tracking for the condensed J-card faces,
+ * and the small-label treatment for the kicker. Keyed on attributes that TrialScope / TrialRoot set, so nothing changes
+ * unless a trial type set is chosen. Storybook only; the site does not import this.
+ */
+[data-trial-caps] .font-display,
+[data-trial-caps] .font-wordmark {
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+[data-trial-kicker="italic"] .font-kicker {
+  font-style: italic;
+}
+
+[data-trial-kicker="caps"] .font-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 1.1rem;
+}

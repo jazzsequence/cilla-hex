@@ -3,6 +3,7 @@
  * Self-hosted font files (Fontsource), one import per file the site uses. Import this once from each entry point
  * (Storybook preview and the site layout) rather than from ds.css, so the bundler resolves the font URLs itself.
  */
-import "@fontsource-variable/bodoni-moda";
+import "@fontsource/abril-fatface/400.css";
 import "@fontsource/courier-prime/400.css";
 import "@fontsource/courier-prime/700.css";
+import "@fontsource-variable/bodoni-moda";
