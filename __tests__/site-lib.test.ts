@@ -24,23 +24,23 @@ describe("lyrics", () => {
   });
 
   it("parses a seeded lyric with its labelled sections", async () => {
-    const l = await getLyric("first-song");
-    expect(l).toMatchObject({ title: "First Song", album: "debut", track: 1 });
-    expect(l?.sections.map((x) => x.label)).toEqual(["Verse 1", "Chorus"]);
+    const l = await getLyric("heavy-sleeper");
+    expect(l).toMatchObject({ title: "Heavy Sleeper", album: "demos", track: 4 });
+    expect(l?.sections.map((x) => x.label)).toEqual(["Verse 1", "Chorus", "Verse 2", "Chorus", "Verse 3", "Bridge", "Final Chorus", "Outro"]);
   });
 
   it("loads every seeded lyric", async () => {
     const all = await getLyrics();
-    expect(all.length).toBeGreaterThanOrEqual(3);
+    expect(all.length).toBeGreaterThanOrEqual(5);
     expect(all.every((l) => l.sections.length > 0)).toBe(true);
   });
 });
 
 describe("catalog", () => {
   it("names audio files <NN>-<slug>.m4a", () => {
-    const t = { number: 3, slug: "third-song", title: "x" };
-    expect(audioFile(t)).toBe("03-third-song.m4a");
-    expect(audioKey("debut", t)).toBe("debut/03-third-song.m4a");
+    const t = { number: 4, slug: "heavy-sleeper", title: "x" };
+    expect(audioFile(t)).toBe("04-heavy-sleeper.m4a");
+    expect(audioKey("demos", t)).toBe("demos/04-heavy-sleeper.m4a");
   });
 
   it("has a lyric for every track that claims one", async () => {
@@ -49,9 +49,10 @@ describe("catalog", () => {
     for (const a of catalog) for (const t of a.tracks) expect(t.hasLyrics).toBe(lyrics.has(t.slug));
   });
 
-  it("has exactly one featured album, and unreleased material has no year", () => {
+  it("has exactly one featured album, and Demos, which is unreleased, has no year", () => {
     expect(albums.filter((a) => a.featured)).toHaveLength(1);
-    expect(albums.find((a) => a.slug === "unreleased")?.year).toBeUndefined();
+    expect(albums.find((a) => a.slug === "demos")).toBeDefined();
+    expect(albums.find((a) => a.slug === "demos")?.year).toBeUndefined();
   });
 });
 

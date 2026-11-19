@@ -26,7 +26,7 @@ and the lyrics files. Add a song there (see "Adding a song" below) and it appear
 **Not in P1:** the per-song lyrics pages (`/lyrics/<song>`, one code route reading the Markdown files), the ticket
 checkout and e-ticket, and the error pages.
 
-`content/p1-pages/*.json` holds each page above as designed (the placeholder band's versions). They are tested against the code versions in CI,
+`content/p1-pages/*.json` holds each page above as designed (home, listen and the Demos album page are Cilla's; `press.json` is still the template's sample because `/press` is off). They are tested against the code versions in CI,
 and are the copy to rebuild a page from if one is ever damaged.
 
 The `/init-p1-pages` skill creates all of these pages in P1 from your own content once it is in (drafts only; publishing is yours): the albums and

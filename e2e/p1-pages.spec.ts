@@ -13,9 +13,7 @@ const PAIRS: [fixture: string, route: string][] = [
   ["home", "/"],
   ["listen", "/listen"],
   ["albums", "/albums"],
-  ["albums-first-ep", "/albums/first-ep"],
-  ["albums-debut", "/albums/debut"],
-  ["albums-unreleased", "/albums/unreleased"],
+  ["albums-demos", "/albums/demos"],
   ...(features.lyrics ? ([["lyrics", "/lyrics"]] as [string, string][]) : []),
   ...(features.press ? ([["press", "/press"]] as [string, string][]) : []),
   ["privacy", "/privacy"],
@@ -43,7 +41,8 @@ for (const [fixture, route] of PAIRS) {
       const code = await words(page);
       await page.goto(`/e2e-fixtures/${fixture}`);
       const p1 = await words(page);
-      expect(p1.length).toBeGreaterThan(50);
+      // A guard against a blank page. The shortest real one is /albums with a single release (about 47 characters).
+      expect(p1.length).toBeGreaterThan(30);
       expect(p1).toBe(code);
     });
 
@@ -70,11 +69,11 @@ test("the test-only route is a 404 for an unknown page", async ({ page }) => {
 });
 
 test("catalog blocks are driven by the catalog, not typed text", async ({ page }) => {
-  await page.goto("/e2e-fixtures/albums-first-ep");
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("First EP");
-  await expect(page.getByRole("listitem").filter({ hasText: "Opening Track" })).toBeVisible();
+  await page.goto("/e2e-fixtures/albums-demos");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Demos");
+  await expect(page.getByRole("listitem").filter({ hasText: "Blood Doll" })).toBeVisible();
   if (features.lyrics) {
     await page.goto("/e2e-fixtures/lyrics");
-    expect(await page.getByRole("link", { name: /First Song/ }).count()).toBeGreaterThan(0);
+    expect(await page.getByRole("link", { name: /Blood Doll/ }).count()).toBeGreaterThan(0);
   }
 });
