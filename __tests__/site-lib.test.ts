@@ -49,6 +49,16 @@ describe("catalog", () => {
     for (const a of catalog) for (const t of a.tracks) expect(t.hasLyrics).toBe(lyrics.has(t.slug));
   });
 
+  it("keeps each lyric file's track number in step with the catalog's order", async () => {
+    const lyrics = new Map((await getLyrics()).map((l) => [l.slug, l]));
+    for (const a of albums) {
+      for (const t of a.tracks) {
+        const l = lyrics.get(t.slug);
+        if (l?.album === a.slug) expect(l.track, `${a.slug}/${t.slug}`).toBe(t.number);
+      }
+    }
+  });
+
   it("has exactly one featured album, and Demos, which is unreleased, has no year", () => {
     expect(albums.filter((a) => a.featured)).toHaveLength(1);
     expect(albums.find((a) => a.slug === "demos")).toBeDefined();

@@ -1,7 +1,7 @@
 ---
 title: "He's My Pusher"
 album: demos
-track: 2
+track: 1
 ---
 
 ### Verse 1

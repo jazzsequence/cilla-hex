@@ -1,7 +1,7 @@
 ---
 title: "Blood Doll"
 album: demos
-track: 1
+track: 2
 ---
 
 ### Verse 1
