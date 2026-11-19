@@ -34,7 +34,7 @@ export function artistData() {
     "@id": `${SITE_URL}/#artist`,
     name: band.name,
     url: SITE_URL,
-    image: absoluteUrl("/images/band-portrait.png"),
+    image: absoluteUrl("/images/portrait.jpg"),
     genre: band.genre,
   };
 }

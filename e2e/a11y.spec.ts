@@ -7,11 +7,9 @@ import { features, when } from "./helpers/config";
 const routes = [
   "/",
   "/albums",
-  "/albums/debut",
-  "/albums/first-ep",
-  "/albums/unreleased",
+  "/albums/demos",
   "/listen",
-  ...when("lyrics", "/lyrics", "/lyrics/first-song", "/lyrics/second-song"),
+  ...when("lyrics", "/lyrics", "/lyrics/blood-doll", "/lyrics/heavy-sleeper"),
   ...when(
     "tour",
     "/tour",
