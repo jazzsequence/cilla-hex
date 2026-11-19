@@ -16,8 +16,8 @@ Recorded by `/init-band` on 2026-11-19. Change them in `band.config.json` (then 
 - **Sections on:** Lyrics, Press kit. **Off:** Tour and tickets, Merch, Tour map, Press; their routes return 404 and they drop out of the nav, sitemap and `llms.txt`. There is no `/press` page (no press yet); the press kit is its own switch, `features.pressKit`, and a P1-only page.
 - **Type:** headings and the wordmark in Abril Fatface (single weight, used as designed), body in Courier Prime, kickers in Bodoni Moda (variable). This is the trial's "Pageant sash: Abril Fatface", picked 2026-11-19. The trial showed the kicker in italic; that was trial-only CSS (`.font-kicker` has no italic and the config names only a face), so the site's kickers are upright until a design PR adds it.
 - **Palette:** "Foggy Peninsula" (slate-blue surfaces, fog-grey text, stucco-pink accent), picked 2026-11-19 from the trial; see `band.config.json`; the gate needed no adjustments.
-- **Hosting:** Pantheon site not set yet; P1 site not set yet; audio host not set yet (`NEXT_PUBLIC_AUDIO_BASE_URL`).
-- **Workflows installed:** none yet (the examples are in `examples/workflows/`).
+- **Hosting:** Pantheon site `cilla-hex` (id `0ee370eb-c032-4b8b-96b6-27caeb0ca5fc`, CXR workspace, Next.js on an external GitHub repo; created 2026-11-19 on the Sandbox plan); P1 site `588e4073-9a92-4ea5-b5e3-1fce0e434330` (created in the P1 dashboard, linked to that Pantheon site, allowed origins `https://cilla.jazzsequence.com`, `https://*-cilla-hex.pantheonsite.io`, `http://localhost:3000`); audio host not set yet (`NEXT_PUBLIC_AUDIO_BASE_URL`).
+- **Workflows installed:** `test-deployed-site.yml`, `sync-puck-registry.yml`.
 - Secrets are never in files; see "Secrets on Pantheon" below for how each is set.
 
 ## Commit review (reviewer agent)
@@ -178,12 +178,12 @@ Show map. A published P1 `/privacy` page is a separate copy, so any later change
 
 - `test-pantheon.yml`: lint, typecheck, unit, build, accessibility (Playwright + axe), all on the runner with placeholder credentials. Nothing here needs a Pantheon environment or secrets; the deployed-site check is its own workflow (below). Storybook is built only by `storybook-preview.yml` (every PR), not here.
 - `promote-pantheon.yml`: push to `test` or `live` branch tags `pantheon_test_N` / `pantheon_live_N`.
-- `examples/workflows/sync-puck-registry.yml`: not installed (no P1 site recorded yet). Install it once the site has its own P1 site and the three secrets; until then use `pnpm sync:registry` or the P1 MCP `sync_components`.
+- `sync-puck-registry.yml`: syncs the Puck registry on pushes touching `components/puck/**`, `puck.components.tsx` or `puck.config.tsx`. Needs `CSS_BASE_URL`, `CSS_SITE_ID`, `CSS_REGISTRY_API_KEY` as repo secrets, for this site's own P1 only; skipped for Dependabot pushes. Until the secrets exist, use `pnpm sync:registry` or the P1 MCP `sync_components`.
 - `storybook-preview.yml`: per-PR preview at `https://<owner>.github.io/<repo>/pr-N/` (gh-pages; needs
   Pages enabled, which needs a public repo or paid plan). Both jobs that push `gh-pages` (publish, and cleanup on close) share one concurrency group with `queue: max`, because two runs pushing it at once reject each other and fail the required check (it happened on a sister site, on two PRs two minutes apart). `queue: max` is what stops a waiting run from being cancelled by the next one; the plain default would drop previews.
 - Repo secrets: `PANTHEON_MACHINE_TOKEN` (also as a Dependabot secret; a Pantheon personal access token, which expires 90 days after it is created, so replace both copies before then: SETUP.md step 0a) for `promote-pantheon.yml` and the deployed-site check, plus the three registry-sync secrets when that workflow is installed. The always-on CI checks run on placeholders and need none.
 - `dependabot.yml`: weekly (Monday) npm and GitHub Actions updates, minor and patch grouped, a 14-day cooldown (the "no release under two weeks old" rule; it applies to version updates only, security updates bypass it). TypeScript 7 and ESLint 10 are ignored, with the blockers copied from a sister site on the same stack: not re-tested here, so lift an entry by trying the update on a PR environment. A `versions:` ignore also hides security-update PRs for that range, so keep Dependabot alerts enabled (a repo setting, not in this file). Dependabot PRs are ordinary PRs into `main`: squash-merge them. `@pantheon-systems/nextjs-cache-handler` is deliberately not ignored (owner's call). A sister site keeps live on 0.9.0 after 0.11.0 took its live site down on a large cache, whereas `cacheHandler.mjs` here has an unbounded initialise, so revisit if live shows restarts.
-- `examples/workflows/test-deployed-site.yml`: not installed. Copy it to `.github/workflows/`, set `PANTHEON_SITE_NAME`, and add `PANTHEON_MACHINE_TOKEN` (Actions and Dependabot) to turn it on.
+- `test-deployed-site.yml`: waits for Pantheon to build `pr-N`/`dev`, then expects 200. Needs `PANTHEON_MACHINE_TOKEN` as an Actions and a Dependabot secret, so it fails on every PR until that is set. Add it as a required check only once it passes.
 
 ## Palette
 

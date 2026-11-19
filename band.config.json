@@ -44,6 +44,10 @@
   "setup": {
     "initialized": true
   },
+  "hosting": {
+    "pantheonSite": "cilla-hex",
+    "p1SiteId": "588e4073-9a92-4ea5-b5e3-1fce0e434330"
+  },
   "editorial": {
     "offLimitsFile": "docs/off-limits.md"
   },
