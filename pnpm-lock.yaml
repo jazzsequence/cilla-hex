@@ -16,6 +16,9 @@ importers:
       '@fontsource-variable/bodoni-moda':
         specifier: ^5.3.0
         version: 5.3.0
+      '@fontsource/abril-fatface':
+        specifier: ^5.3.0
+        version: 5.3.0
       '@fontsource/courier-prime':
         specifier: ^5.3.0
         version: 5.3.0
@@ -89,16 +92,10 @@ importers:
       '@eslint/js':
         specifier: ^9.27.0
         version: 9.39.5
-      '@fontsource/abril-fatface':
-        specifier: ^5.3.0
-        version: 5.3.0
       '@fontsource/anton':
         specifier: ^5.3.0
         version: 5.3.0
       '@fontsource/bebas-neue':
-        specifier: ^5.3.0
-        version: 5.3.0
-      '@fontsource/bodoni-moda':
         specifier: ^5.3.0
         version: 5.3.0
       '@fontsource/cutive-mono':
@@ -715,9 +712,6 @@ packages:
 
   '@fontsource/bebas-neue@5.3.0':
     resolution: {integrity: sha512-nCxMEb9Bg9sjNWm9TIOsvHKDMLRUfEZPWpLgYu6m9KavZZVSA/WoHzI5wROwqA+eNwEi/PNBAcB5Co7HA3S0Cw==}
-
-  '@fontsource/bodoni-moda@5.3.0':
-    resolution: {integrity: sha512-Wt2XBCHivYxkTP3ydq/Ax+7VshwsOh/6ayA5om2t+yClCkGwLPj2Mi6OnyMANjyLcqDUWs4rlOHnc8SBLf6/pA==}
 
   '@fontsource/courier-prime@5.3.0':
     resolution: {integrity: sha512-KIi1k4VG1Wv+/CGpb1AUpLkUuOAQA6zmvthqxOZGN0AV8BEgQgbK7qAtquv14zsBJAY1bb5BHIEbWVFLgENh0w==}
@@ -6091,8 +6085,6 @@ snapshots:
   '@fontsource/anton@5.3.0': {}
 
   '@fontsource/bebas-neue@5.3.0': {}
-
-  '@fontsource/bodoni-moda@5.3.0': {}
 
   '@fontsource/courier-prime@5.3.0': {}
 
