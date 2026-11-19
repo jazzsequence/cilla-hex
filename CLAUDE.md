@@ -13,7 +13,7 @@ because the list itself would give the topics away. It has 4 entries. The review
 Recorded by `/init-band` on 2026-11-19. Change them in `band.config.json` (then `pnpm theme` if the palette or type changed), not here; this list is the why.
 
 - **Band:** Cilla Hex, a fictional act (pages never present it as real). Demos made alone while the band is on pause.
-- **Sections on:** Lyrics, Press. **Off:** Tour and tickets, Merch, Tour map; their routes return 404 and they drop out of the nav, sitemap and `llms.txt`.
+- **Sections on:** Lyrics, Press kit. **Off:** Tour and tickets, Merch, Tour map, Press; their routes return 404 and they drop out of the nav, sitemap and `llms.txt`. There is no `/press` page (no press yet); the press kit is its own switch, `features.pressKit`, and a P1-only page.
 - **Type:** headings in Bodoni Moda (variable), body in Courier Prime; the wordmark uses the display face; kickers use the display face.
 - **Palette:** see `band.config.json`; the gate needed no adjustments.
 - **Hosting:** Pantheon site not set yet; P1 site not set yet; audio host not set yet (`NEXT_PUBLIC_AUDIO_BASE_URL`).
@@ -71,9 +71,9 @@ How this fits the rest of this file:
   `band`, `features`, `typography`, `editorial`. The palette in the same file is validated separately by `lib/theme/palette.ts`. `band` is the name, tagline, description,
   genre, `fictional` flag, canonical `siteUrl` (`NEXT_PUBLIC_SITE_URL` overrides it per environment), footer year and optional imprint line, and social links. Never hard-code
   a band name, genre or URL in a component; read it from here. `setup.initialized` records that `/init-band` has run; `hosting.pantheonSite` and `hosting.p1SiteId` record where the site lives (neither is a secret; keys and tokens never go in the file). Playwright specs cannot import the JSON module (its ESM loader rejects it): they read it through `e2e/helpers/config.ts`.
-- **Features (`features.tour`, `merch`, `lyrics`, `map`, `press`).** An off section drops out of the header and footer, the sitemap and `llms.txt`, and its routes return 404
-  (`tour` covers `/tour`, `/tickets/[id]`, `/ticket`, the home page's tour list and the hero's Tour dates button (the code version swaps its default buttons for Listen alone), the 404 page's Tour dates button, and the tour list and hero button in the `content/p1-pages/home.json` fixture, which `/init-band` rewrites so it still says what the code version says; `lyrics` also stops tracks linking to lyrics; `press` covers `/press` and the footer press-kit link;
-  `map` hides `TourMap` on the tour and ticket pages and needs `tour`). `/press/kit` and any other P1-only page are the owner's to publish or not in P1; the `[...puckPath]` catch-all
+- **Features (`features.tour`, `merch`, `lyrics`, `map`, `press`, `pressKit`).** An off section drops out of the header and footer, the sitemap and `llms.txt`, and its routes return 404
+  (`tour` covers `/tour`, `/tickets/[id]`, `/ticket`, the home page's tour list and the hero's Tour dates button (the code version swaps its default buttons for Listen alone), the 404 page's Tour dates button, and the tour list and hero button in the `content/p1-pages/home.json` fixture, which `/init-band` rewrites so it still says what the code version says; `lyrics` also stops tracks linking to lyrics; `press` covers `/press` (the article page) only;
+  `map` hides `TourMap` on the tour and ticket pages and needs `tour`). `/press/kit` and any other P1-only page are the owner's to publish or not in P1 (so turning `pressKit` off only removes the kit's footer link and its sitemap and `llms.txt` entries: the page stays up until it is unpublished in P1; `pressKit` is optional in the config, off when absent). `/press/kit` has its own route (`app/(site)/press/kit/page.tsx`) only so it gets a canonical URL, `og:url` and `og:image`; it has no repo copy, so it is a 404 until the page is published in P1. The `[...puckPath]` catch-all
   must stay an untouched shim, so it is not gated. The per-album and listen pages are always on.
 - **Content split:** lyrics = Markdown in repo; bio, albums, tour dates, merch = P1 (with repo fallbacks); images = P1 media;
   audio = a Cloudflare R2 bucket served from the domain in `NEXT_PUBLIC_AUDIO_BASE_URL`, listed server-side at build/ISR
