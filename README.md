@@ -2,7 +2,7 @@
 
 Demos made alone while the band is on pause.
 
-Cilla Hex, singer of Dead Prom Queens, steps out on her own. The band is on pause. She isn't.
+Cilla Hex, singer of Dead Prom Queens, steps out on her own.
 
 _This is a fictional act; nothing here is a real band, show or release._
 
