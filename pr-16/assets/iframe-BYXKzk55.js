@@ -1,1 +1,0 @@
-import{t as e}from"./iframe-ysIG_FWc.js";e();
