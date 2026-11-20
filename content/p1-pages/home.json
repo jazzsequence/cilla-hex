@@ -11,10 +11,10 @@
       "type": "HeroBlock",
       "props": {
         "id": "HeroBlock-1",
-        "imageUrl": "/images/placeholder-wide.png",
-        "kicker": "New album",
-        "title": "Debut Album",
-        "blurb": "The latest release.",
+        "imageUrl": "/images/hero.jpg",
+        "kicker": "New songs",
+        "title": "Demos",
+        "blurb": "Five songs by Cilla Hex, on her own.",
         "actions": [
           {
             "label": "Listen",

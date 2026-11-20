@@ -37,10 +37,10 @@ async function HomeFallback() {
         ]}
       />
       <Hero
-        image="/images/placeholder-wide.png"
-        kicker="New album"
+        image="/images/hero.jpg"
+        kicker="New songs"
         title={latest.title}
-        blurb="The latest release."
+        blurb="Five songs by Cilla Hex, on her own."
         // The hero's default buttons include Tour dates, which is a 404 when the tour section is off.
         actions={features.tour ? undefined : [{ label: "Listen", href: "/listen" }]}
       />

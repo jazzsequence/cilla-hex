@@ -6,7 +6,7 @@ Cilla Hex, singer of Dead Prom Queens, steps out on her own.
 
 _This is a fictional act; nothing here is a real band, show or release._
 
-Built with Next.js 16, edited with [P1](https://content.pantheon.io) and Puck, and hosted on Pantheon. Live at https://cilla.jazzsequence.com.
+Built with Next.js 16, edited with [P1](https://content.pantheon.io) and Puck, and hosted on Pantheon (`cilla-hex`). Live at https://cilla.jazzsequence.com.
 
 ## Working on it
 

@@ -1,71 +1,36 @@
 [
   {
-    "slug": "debut",
-    "title": "Debut Album",
-    "kind": "LP",
-    "year": 2026,
-    "cover": "/images/placeholder-cover.png",
-    "blurb": "Placeholder text about the band's first album. Replace it in data/albums.json.",
+    "slug": "demos",
+    "title": "Demos",
+    "kind": "Demos",
+    "cover": "/images/kitchen.jpg",
+    "blurb": "Five new songs by Cilla Hex, made alone.",
     "featured": true,
-    "gallery": [
-      {
-        "src": "/images/placeholder-wide.png",
-        "alt": "Placeholder back cover",
-        "width": 1600,
-        "height": 900
-      }
-    ],
     "tracks": [
       {
         "number": 1,
-        "slug": "first-song",
-        "title": "First Song"
+        "slug": "hes-my-pusher",
+        "title": "He's My Pusher"
       },
       {
         "number": 2,
-        "slug": "second-song",
-        "title": "Second Song"
+        "slug": "blood-doll",
+        "title": "Blood Doll"
       },
       {
         "number": 3,
-        "slug": "third-song",
-        "title": "Third Song"
-      }
-    ]
-  },
-  {
-    "slug": "first-ep",
-    "title": "First EP",
-    "kind": "EP",
-    "year": 2025,
-    "cover": "/images/placeholder-cover.png",
-    "blurb": "Placeholder text about an earlier release.",
-    "featured": false,
-    "tracks": [
-      {
-        "number": 1,
-        "slug": "opening-track",
-        "title": "Opening Track"
+        "slug": "everybody-likes-you",
+        "title": "Everybody Likes You"
       },
       {
-        "number": 2,
-        "slug": "closing-track",
-        "title": "Closing Track"
-      }
-    ]
-  },
-  {
-    "slug": "unreleased",
-    "title": "Unreleased",
-    "kind": "Unreleased",
-    "cover": "/images/placeholder-cover.png",
-    "blurb": "Recordings that have not been released yet.",
-    "featured": false,
-    "tracks": [
+        "number": 4,
+        "slug": "heavy-sleeper",
+        "title": "Heavy Sleeper"
+      },
       {
-        "number": 1,
-        "slug": "work-in-progress",
-        "title": "Work in Progress"
+        "number": 5,
+        "slug": "sugar-daddy",
+        "title": "Sugar Daddy"
       }
     ]
   }

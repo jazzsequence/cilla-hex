@@ -14,8 +14,8 @@ Sign in at `/p1` and edit these pages in the visual editor. Changes go live when
 | `/listen` | The intro. The albums and their songs come from the catalog | Page heading, Album with tracks |
 | `/albums`, `/albums/<album>` | Headings and text around each album. Cover, year and songs come from the catalog | Album header, Track list, Album grid, Image gallery |
 | `/lyrics` | The intro. The list comes from the lyrics files | Page heading, Lyrics index |
-| `/press`, `/privacy` | The text, in Markdown | Article |
-| `/press/kit` | The press kit: one-liner, bios, quick facts, the band, photos and the download link. It exists only in P1; turning `features.pressKit` off removes its sitemap and `llms.txt` entries and its footer link, not the page | Page heading, Image gallery (Columns 1 for the wide lead photo, 3 for the grid), Article |
+| `/press`, `/privacy` | The text, written right on the page (rich text: select text for the toolbar, which has Add link, Remove link and Clear formatting; typing `[words](https://…)` also makes a link). Pages made as Markdown keep rendering until text goes in the Article's Text field | Article |
+| `/press/kit` | The press kit: one-liner, bios, quick facts, the band, photos and the download link. It exists only in P1; turning `features.pressKit` off removes its sitemap and `llms.txt` entries and its footer link, not the page | Page heading, Image gallery (Columns 1 for the wide lead photo, 3 for the grid; Vertical alignment sets where shorter pictures sit in a row), Article |
 | `/bio` | Bio text and photo | Image and text |
 | `/merch` | Merch items, prices and images | Page heading, Merch grid |
 
@@ -26,7 +26,7 @@ and the lyrics files. Add a song there (see "Adding a song" below) and it appear
 **Not in P1:** the per-song lyrics pages (`/lyrics/<song>`, one code route reading the Markdown files), the ticket
 checkout and e-ticket, and the error pages.
 
-`content/p1-pages/*.json` holds each page above as designed (the placeholder band's versions). They are tested against the code versions in CI,
+`content/p1-pages/*.json` holds each page above as designed (home, listen and the Demos album page are Cilla's; `press.json` is still the template's sample because `/press` is off). They are tested against the code versions in CI,
 and are the copy to rebuild a page from if one is ever damaged.
 
 The `/init-p1-pages` skill creates all of these pages in P1 from your own content once it is in (drafts only; publishing is yours): the albums and
