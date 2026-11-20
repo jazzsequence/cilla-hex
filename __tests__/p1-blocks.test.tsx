@@ -59,6 +59,17 @@ describe("blocks", () => {
       expect(html("HeroBlock", { imageUrl: media, title: "Title" })).toContain("width=1920");
     });
 
+    it("the gallery's one-column option is one wide picture, and 2 and 3 keep the grid", () => {
+      const items = [{ imageUrl: media, alt: "A" }, { imageUrl: `${media}&x=2`, alt: "B" }];
+      const render = (columns: string) => html("ImageGalleryBlock", { columns, items });
+      const options = (components.ImageGalleryBlock as unknown as { fields: { columns: { options: { value: string }[] } } }).fields.columns.options;
+      expect(options.map((o) => o.value)).toEqual(["1", "2", "3"]);
+      expect(render("1")).not.toContain("grid-cols");
+      expect(render("1")).toContain("width=1400");
+      expect(render("2")).toContain("sm:grid-cols-2");
+      expect(render("3")).toContain("md:grid-cols-3");
+    });
+
     it("leave local images and other hosts alone", () => {
       const items = [
         { imageUrl: "/images/hero.jpg", alt: "Local" },
