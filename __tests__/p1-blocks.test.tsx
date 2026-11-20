@@ -70,6 +70,16 @@ describe("blocks", () => {
       expect(render("3")).toContain("md:grid-cols-3");
     });
 
+    it("the gallery aligns pictures of different heights to the top, middle or bottom, top by default", () => {
+      const items = [{ imageUrl: media, alt: "A" }];
+      const render = (props: object) => html("ImageGalleryBlock", { columns: "3", items, ...props });
+      expect(render({})).toContain("items-start");
+      expect(render({ verticalAlign: "top" })).toContain("items-start");
+      expect(render({ verticalAlign: "middle" })).toContain("items-center");
+      expect(render({ verticalAlign: "bottom" })).toContain("items-end");
+      expect(render({ verticalAlign: "sideways" })).toContain("items-start");
+    });
+
     it("leave local images and other hosts alone", () => {
       const items = [
         { imageUrl: "/images/hero.jpg", alt: "Local" },

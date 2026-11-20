@@ -95,6 +95,9 @@ export const articleBlock = {
 
 type GalleryItem = { imageUrl?: string; alt?: string };
 
+/** Where pictures of different heights sit in their row. Literal class names, so Tailwind sees them. */
+const GALLERY_ALIGN: Record<string, string> = { top: "items-start", middle: "items-center", bottom: "items-end" };
+
 /** Pixels to ask P1 media for: about twice the column the picture is drawn in (the lightbox opens the same file larger, so not less). */
 const galleryWidth = (columns?: string) => (columns === "1" ? 1400 : columns === "3" ? 1000 : 1200);
 
@@ -111,6 +114,15 @@ export const imageGalleryBlock = {
         { label: "3", value: "3" },
       ],
     },
+    verticalAlign: {
+      type: "radio" as const,
+      label: "Vertical alignment (pictures of different heights)",
+      options: [
+        { label: "Top", value: "top" },
+        { label: "Middle", value: "middle" },
+        { label: "Bottom", value: "bottom" },
+      ],
+    },
     items: {
       type: "array" as const,
       label: "Pictures",
@@ -122,10 +134,10 @@ export const imageGalleryBlock = {
       getItemSummary: (i: GalleryItem) => i.alt || i.imageUrl || "Picture",
     },
   },
-  defaultProps: { columns: "2", items: [] as GalleryItem[] },
-  render: ({ columns, items }: { columns?: string; items?: GalleryItem[] }) => (
+  defaultProps: { columns: "2", verticalAlign: "top", items: [] as GalleryItem[] },
+  render: ({ columns, verticalAlign, items }: { columns?: string; verticalAlign?: string; items?: GalleryItem[] }) => (
     <div className="mx-auto w-full max-w-6xl px-6 py-10">
-      <div className={`grid gap-6 ${columns === "1" ? "" : `sm:grid-cols-2 ${columns === "3" ? "md:grid-cols-3" : ""}`}`}>
+      <div className={`grid gap-6 ${GALLERY_ALIGN[verticalAlign ?? "top"] ?? "items-start"} ${columns === "1" ? "" : `sm:grid-cols-2 ${columns === "3" ? "md:grid-cols-3" : ""}`}`}>
         {(items ?? [])
           .filter((i) => i.imageUrl)
           .map((i) => (
